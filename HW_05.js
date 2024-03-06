@@ -75,15 +75,15 @@ console.log(`Key: ${paint}, Value: ${room1[paint]}`);
 
 // Создаем объект Testing с принципами тестирования и типами тестирования
 const Testing = {
-  principles: [
-    "1. Testing shows the presence, not the absence of defects.",
-    "2. Exhaustive testing is impossible.",
-    "3. Early testing saves time and money.",
-    "4. Defects cluster together.",
-    "5. Tests wear out.",
-    "6. Testing is context dependent.",
-    "7. Absence-of-defects fallacy.",
-  ],
+  principles: {
+    1: "Testing shows the presence, not the absence of defects.",
+    2: "Exhaustive testing is impossible.",
+    3: "Early testing saves time and money.",
+    4: "Defects cluster together.",
+    5: "Tests wear out.",
+    6: "Testing is context dependent.",
+    7: "Absence-of-defects fallacy.",
+  },
   testTypes: {
     functionalTesting:
       "Functional testing evaluates the functions that a component or system should perform.",
@@ -96,11 +96,12 @@ const Testing = {
   },
 };
 
-// Выводим в консоль принципы тестирования и типы тестирования
 console.log("Testing principles:");
-Testing.principles.forEach((principles) => console.log(principles));
+for (const principle in Testing.principles) {
+  console.log(`${principle}: ${Testing.principles[principle]}`);
+}
 
 console.log("Testing types:");
-Object.entries(Testing.testTypes).forEach(([name, description]) =>
-  console.log(`${name}: ${description}`)
-);
+for (const type in Testing.testTypes) {
+  console.log(`${type}: ${Testing.testTypes[type]}`);
+}
